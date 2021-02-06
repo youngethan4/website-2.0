@@ -1,6 +1,6 @@
 import { MESSAGE_SENT_SUCCESS, MESSAGE_SENT_FAILED } from "./actionTypes";
 import axios from "axios";
-const API_URL = "http://ethanryoung.com/api/message";
+const API_URL = "https://ethanryoung.com/api/message";
 
 export const sendMessage = (data) => async (dispatch) => {
   try {

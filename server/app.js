@@ -1,10 +1,11 @@
 const express = require("express");
 const path = require("path");
+const fs = require("fs");
 const cors = require("cors");
 const http = require("http");
 const https = require("https");
 const app = express();
-httpPort = 3003;
+httpPort = 80;
 httpsPort = 443;
 
 app.use(cors());
