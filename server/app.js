@@ -4,7 +4,7 @@ const cors = require("cors");
 const http = require("http");
 const https = require("https");
 const app = express();
-httpPort = 80;
+httpPort = 3003;
 httpsPort = 443;
 
 app.use(cors());
@@ -33,7 +33,7 @@ const credentials = {
 const httpsServer = https.createServer(credentials, app);
 const httpServer = http.createServer(app);
 
-//Check for valid info
+//Check for valid info & reroute to https
 app.use(function (req, res, next) {
   if (req.protocol === "http") {
     res.redirect("https://" + req.headers.host + req.url);
@@ -57,7 +57,7 @@ app.post("/api/message", (req, res) => {
   res.send("Got it.");
 });
 
-app.get("/", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 

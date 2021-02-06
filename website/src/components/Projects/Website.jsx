@@ -23,7 +23,7 @@ function Website() {
         </button>
         <button
           onClick={() =>
-            window.open("https://github.com/airrazor013/Web-Server", "_blank")
+            window.open("https://github.com/youngethan4/website-2.0", "_blank")
           }
         >
           View code
