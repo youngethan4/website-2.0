@@ -12,8 +12,10 @@ const ca = readFileSync(
   "/etc/letsencrypt/live/ethanryoung.com-0001/chain.pem",
   "utf8"
 );
-export default credentials = {
+const credentials = {
   key: privateKey,
   cert: certificate,
   ca: ca,
 };
+
+export default credentials;

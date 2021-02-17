@@ -17,3 +17,5 @@ const validate = (app) => {
     }
   });
 };
+
+export default validate;
