@@ -113,20 +113,35 @@
   }
 }
 
-.picture-container {
-  margin-top: 25px;
-  max-width: 100%;
+.carouselContainer {
+  position: relative;
+  height: 550px;
+  width: 100%;
+}
+
+.pictureContainer {
+  position: relative;
+  height: 550px;
+  width: 100%;
 }
 
 .pictureDesciption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+
   img {
-    margin: 0 auto;
-    max-height: 600px;
+    max-height: 500px;
     max-width: 95%;
+    border: 1px solid gray;
+    border-radius: 10px;
   }
 
   p {
-    margin: 5px auto;
+    margin: 10px auto;
     max-width: 90%;
     font-size: 1rem;
 
@@ -140,70 +155,58 @@
   }
 }
 
+@mixin carouselButton() {
+  position: absolute;
+  width: 50px;
+  height: 300px;
+  font-size: xx-large;
+  color: lightgray;
+  top: 50%;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.1);
+  outline: none;
+  border: none;
+}
+
+.carouselBack {
+  @include carouselButton();
+  left: 0%;
+  -ms-transform: translate(0%, -50%);
+  transform: translate(0%, -50%);
+  :hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.carouselNext {
+  @include carouselButton();
+  left: 100%;
+  -ms-transform: translate(-100%, -50%);
+  transform: translate(-100%, -50%);
+}
+
+.carouselNext:hover,
+.carouselBack:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: gray;
+}
+
+.carouselNext:disabled,
+.carouselBack:disabled {
+  display: none;
+}
+
+.carouselDots button {
+  width: 10px;
+  height: 15px;
+  border-radius: 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
 .backToTop {
   margin-top: 20px;
   text-decoration: underline;
   color: $color-dark;
   cursor: pointer;
 }
-
-// .slick-slider{
-//   background-color: lightgray;
-//   padding-top: 10px;
-// }
-
-// .slick-track {
-//   display: flex !important;
-//   align-items: center !important;
-//   justify-content: center !important;
-// }
-
-// .slick-slide {
-//   &:hover{
-//     cursor: pointer;
-//   }
-//   &:focus{
-//     outline: none;
-//     border: none;
-//   }
-// }
-
-// .slick-prev {
-//   left: 0px !important;
-//   z-index: 2;
-//   background-color: rgba(255, 255, 255, 0) !important;
-//   background: url(../../images/ethan/slick/prev.png) no-repeat center / cover !important;
-//   height: 50px !important;
-//   width: 30px !important;
-
-//   &:hover{
-//     background: url(../../images/ethan/slick/prev-hover.png) no-repeat center / cover !important;
-//   }
-
-//   &::before{
-//     content: "" !important;
-//     background-color: rgba(255, 255, 255, 0) !important;
-//   }
-// }
-
-// .slick-next {
-//   right: 0px !important;
-//   z-index: 2;
-//   background-color: rgba(255, 255, 255, 0) !important;
-//   background: url(../../images/ethan/slick/next.png) no-repeat center / cover !important;
-//   height: 50px !important;
-//   width: 30px !important;
-
-//   &:hover{
-//     background: url(../../images/ethan/slick/next-hover.png) no-repeat center / cover !important;
-//   }
-
-//   &::before{
-//     content: "" !important;
-//     background-color: rgba(255, 255, 255, 0) !important;
-//   }
-// }
-
-// .slick-arrow::after {
-//   background-color: rgba(255, 255, 255, 0) !important;
-// }

@@ -1,29 +1,38 @@
-import Carousel, { slidesToShowPlugin } from "@brainhubeu/react-carousel";
-import "@brainhubeu/react-carousel/lib/style.css";
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ButtonBack,
+  ButtonNext,
+  DotGroup,
+} from "pure-react-carousel";
+import "pure-react-carousel/dist/react-carousel.es.css";
 
 import React from "react";
 
 function MyCarousel({ contents }) {
   return (
-    <Carousel
-      plugins={[
-        "clickToChange",
-        "centered",
-        {
-          resolve: slidesToShowPlugin,
-          options: {
-            numberOfSlides: 2,
-          },
-        },
-      ]}
+    <CarouselProvider
+      naturalSlideWidth={800}
+      naturalSlideHeight={550}
+      totalSlides={contents.length}
     >
-      {contents.map((content, index) => (
-        <div className="pictureDesciption" key={index}>
-          <img src={content.img} alt="" />
-          <p>{content.dsc}</p>
-        </div>
-      ))}
-    </Carousel>
+      <div className="carouselContainer">
+        <ButtonBack className="carouselBack">{"<"}</ButtonBack>
+        <Slider>
+          {contents.map((content, index) => (
+            <Slide className="pictureContainer" key={index} index={index}>
+              <div className="pictureDesciption">
+                <img src={content.img} alt="" />
+                <p>{content.dsc}</p>
+              </div>
+            </Slide>
+          ))}
+        </Slider>
+        <ButtonNext className="carouselNext">{">"}</ButtonNext>
+      </div>
+      <DotGroup className="carouselDots" />
+    </CarouselProvider>
   );
 }
 
