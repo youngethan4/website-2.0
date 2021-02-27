@@ -1,6 +1,11 @@
-import { MESSAGE_SENT_SUCCESS, MESSAGE_SENT_FAILED } from "./actionTypes";
+import {
+  MESSAGE_SENT_SUCCESS,
+  MESSAGE_SENT_FAILED,
+  MESSAGE_STATE_RESET,
+} from "./actionTypes";
 import axios from "axios";
-const API_URL = "http://localhost:3003/api/contact";
+const API_URL =
+  process.env.REACT_APP_API_URL + process.env.REACT_APP_CONTACT_ENDPOINT;
 
 export const sendMessage = (data) => async (dispatch) => {
   try {
@@ -10,4 +15,8 @@ export const sendMessage = (data) => async (dispatch) => {
     console.error(error);
     dispatch({ type: MESSAGE_SENT_FAILED });
   }
+};
+
+export const resetMessageState = () => (dispatch) => {
+  dispatch({ type: MESSAGE_STATE_RESET });
 };

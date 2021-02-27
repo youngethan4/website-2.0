@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { sendMessage } from "../redux/actions/messageActions";
+import ContactHandler from "./ContactHandler";
 import "../scss/eStyle.scss";
 import "../scss/form.scss";
 
-const ContactForm = ({ sendMessage, messageSent, messageError }) => {
+const ContactForm = ({ sendMessage, messageSent }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,19 +21,15 @@ const ContactForm = ({ sendMessage, messageSent, messageError }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     sendMessage(formData);
+    setFormData({ name: "", email: "", message: "" });
   };
   return (
     <div>
       <div className="content">
         <div className="formBody">
+          <ContactHandler />
           <p className="formTitle">
             <strong>Send me a message</strong>
-          </p>
-          <p className="success">
-            {messageSent ? "Message sent successfully." : ""}
-          </p>
-          <p className="error">
-            {messageError ? "Error sending message, please try again." : ""}
           </p>
           <form id="myForm" onSubmit={onSubmit}>
             Name:
@@ -69,7 +66,6 @@ const ContactForm = ({ sendMessage, messageSent, messageError }) => {
 
 const mapStateToProps = (state) => ({
   messageSent: state.message.messageSent,
-  messageError: state.message.messageError,
 });
 
 const mapDispatchToProps = {
