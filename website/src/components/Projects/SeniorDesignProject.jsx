@@ -5,7 +5,9 @@ import { contentToggle } from "./contentToggle";
 import MyCarousel from "./MyCarousel";
 
 function SeniorDesignProject() {
-  const id = "seniorDesign";
+  const id = "seniorDesign",
+    widthRatio = 1.8,
+    height = "425px";
 
   const seniorContentToggle = () => {
     contentToggle(id);
@@ -74,7 +76,11 @@ function SeniorDesignProject() {
           <p>Azure</p>
           <p>MySQL</p>
         </div>
-        <MyCarousel contents={imgContents} />
+        <MyCarousel
+          contents={imgContents}
+          widthRatio={widthRatio}
+          height={height}
+        />
         <p className="backToTop" onClick={seniorContentToggle}>
           Show less
         </p>

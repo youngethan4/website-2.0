@@ -115,13 +115,11 @@
 
 .carouselContainer {
   position: relative;
-  height: 550px;
   width: 100%;
 }
 
 .pictureContainer {
   position: relative;
-  height: 550px;
   width: 100%;
 }
 
@@ -153,6 +151,13 @@
       font-size: 1.2rem;
     }
   }
+}
+
+.project-img {
+  max-height: 500px;
+  max-width: 95%;
+  border: 1px solid gray;
+  border-radius: 10px;
 }
 
 @mixin carouselButton() {

@@ -8,7 +8,9 @@ import { contentToggle } from "./contentToggle";
 import MyCarousel from "./MyCarousel";
 
 function NoteCollab() {
-  const id = "noteCollab";
+  const id = "noteCollab",
+    widthRatio = 1.8,
+    height = "435px";
 
   const noteCollabContentToggle = () => {
     contentToggle(id);
@@ -94,7 +96,11 @@ function NoteCollab() {
           <p>Node</p>
           <p>Socket.io</p>
         </div>
-        <MyCarousel contents={imgContents} />
+        <MyCarousel
+          contents={imgContents}
+          widthRatio={widthRatio}
+          height={height}
+        />
         <p className="backToTop" onClick={noteCollabContentToggle}>
           Show less
         </p>

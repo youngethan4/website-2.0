@@ -65,11 +65,9 @@ function HackISU() {
           <p>Python</p>
           <p>Debian</p>
         </div>
-        <div className="pictureContainer">
-          <div className="pictureDesciption">
-            <img src={HackISUSecret} alt="" />
-            <p>Picture of SECRET embedded system.</p>
-          </div>
+        <div>
+          <img src={HackISUSecret} alt="" className="project-img" />
+          <p>Picture of SECRET embedded system.</p>
         </div>
         <p className="backToTop" onClick={hackISUContentToggle}>
           Show less

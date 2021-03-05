@@ -10,18 +10,23 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 
 import React from "react";
 
-function MyCarousel({ contents }) {
+function MyCarousel({ contents, widthRatio, height }) {
   return (
     <CarouselProvider
-      naturalSlideWidth={800}
-      naturalSlideHeight={550}
+      naturalSlideWidth={height * widthRatio}
+      naturalSlideHeight={height}
       totalSlides={contents.length}
     >
-      <div className="carouselContainer">
+      <div className="carouselContainer" style={{ height: height }}>
         <ButtonBack className="carouselBack">{"<"}</ButtonBack>
         <Slider>
           {contents.map((content, index) => (
-            <Slide className="pictureContainer" key={index} index={index}>
+            <Slide
+              className="pictureContainer"
+              key={index}
+              index={index}
+              style={{ height: height }}
+            >
               <div className="pictureDesciption">
                 <img src={content.img} alt="" />
                 <p>{content.dsc}</p>

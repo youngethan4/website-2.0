@@ -5,7 +5,9 @@ import { contentToggle } from "./contentToggle";
 import MyCarousel from "./MyCarousel";
 
 function DrinkersChoice() {
-  const id = "drinkersChoice";
+  const id = "drinkersChoice",
+    widthRatio = 1.5,
+    height = "550px";
 
   const drinkersChoiceContentToggle = () => {
     contentToggle(id);
@@ -80,7 +82,11 @@ function DrinkersChoice() {
           <p>JSON / REST</p>
           <p>WebSocket</p>
         </div>
-        <MyCarousel contents={imgContents} />
+        <MyCarousel
+          contents={imgContents}
+          widthRatio={widthRatio}
+          height={height}
+        />
         <p className="backToTop" onClick={drinkersChoiceContentToggle}>
           Show less
         </p>

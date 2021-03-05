@@ -7,7 +7,9 @@ import { contentToggle } from "./contentToggle";
 import MyCarousel from "./MyCarousel";
 
 function Memory() {
-  const id = "memory";
+  const id = "memory",
+    widthRatio = 1.5,
+    height = "560px";
 
   const memoryContentToggle = () => {
     contentToggle(id);
@@ -92,7 +94,11 @@ function Memory() {
           <p>Express</p>
           <p>MySQL</p>
         </div>
-        <MyCarousel contents={imgContents} />
+        <MyCarousel
+          contents={imgContents}
+          widthRatio={widthRatio}
+          height={height}
+        />
         <p className="backToTop" onClick={memoryContentToggle}>
           Show less
         </p>
