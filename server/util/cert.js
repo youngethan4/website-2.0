@@ -4,15 +4,15 @@ import { env } from "process";
 let privateKey, certificate, ca;
 
 if (env.NODE_ENV === "production") {
-  const privateKey = readFileSync(
+  privateKey = readFileSync(
     "/etc/letsencrypt/live/ethanryoung.com-0001/privkey.pem",
     "utf8"
   );
-  const certificate = readFileSync(
+  certificate = readFileSync(
     "/etc/letsencrypt/live/ethanryoung.com-0001/fullchain.pem",
     "utf8"
   );
-  const ca = readFileSync(
+  ca = readFileSync(
     "/etc/letsencrypt/live/ethanryoung.com-0001/chain.pem",
     "utf8"
   );

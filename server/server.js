@@ -21,15 +21,17 @@ if (env.NODE_ENV === "production") {
   httpsServer = _createServer(credentials, app);
   validate(app);
 }
+
+router(app);
+
 app.use((req, res) => {
   res.sendFile(join("/", "build", "index.html"), { root: "./" });
 });
 
-router(app);
-
 httpServer.listen(httpPort, () => {
   console.log("HTTP on 80 is on.");
 });
+console.log(env.NODE_ENV);
 if (env.NODE_ENV === "production") {
   httpsServer.listen(httpsPort, () => {
     console.log("HTTPS on 443 is on.");
