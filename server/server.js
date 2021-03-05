@@ -17,9 +17,7 @@ app.use(express.static(join("./", "build")));
 const httpServer = createServer(app);
 let httpsServer;
 
-console.log(env.NODE_ENV + " <");
-
-if (env.NODE_ENV !== "dev") {
+if (env.NODE_ENV === "production") {
   httpsServer = _createServer(credentials, app);
   validate(app);
 }
@@ -32,7 +30,7 @@ router(app);
 httpServer.listen(httpPort, () => {
   console.log("HTTP on 80 is on.");
 });
-if (env.NODE_ENV !== "dev") {
+if (env.NODE_ENV === "production") {
   httpsServer.listen(httpsPort, () => {
     console.log("HTTPS on 443 is on.");
   });

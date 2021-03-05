@@ -3,7 +3,7 @@ import { env } from "process";
 
 let privateKey, certificate, ca;
 
-if (env.NODE_ENV !== "dev") {
+if (env.NODE_ENV === "production") {
   const privateKey = readFileSync(
     "/etc/letsencrypt/live/ethanryoung.com-0001/privkey.pem",
     "utf8"
